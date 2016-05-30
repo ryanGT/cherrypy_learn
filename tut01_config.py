@@ -3,7 +3,7 @@ import cherrypy
 class HelloWorld(object):
     @cherrypy.expose
     def index(self):
-        return "Hello world!"
+        return "Hello world!, 0.0.0.0"
 
 if __name__ == '__main__':
     conf = {'server.socket_host': '0.0.0.0'} 
