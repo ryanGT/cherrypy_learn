@@ -15,6 +15,8 @@ class StringGenerator(object):
 
     @cherrypy.expose
     def myfunc(self, a=1, b=2):
+        a = float(a)
+        b = float(b)
         c = a + b
         line1 = 'a = %s' % a
         line2 = 'b = %s' % b
