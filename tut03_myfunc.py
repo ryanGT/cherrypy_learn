@@ -22,7 +22,7 @@ class StringGenerator(object):
         line2 = 'b = %s' % b
         line3 = 'c = %s' % c
         mylist = [line1, line2, line3]
-        outstr = '\n'.join(mylist)
+        outstr = ' <br> '.join(mylist)
         return outstr
 
 
