@@ -93,6 +93,6 @@ if __name__ == '__main__':
                 }
             }
     cherrypy.config.update(conf)
-    cherrypy.quickstart(StringGenerator())
+    cherrypy.quickstart(StringGenerator(), '/', conf)
 
     
