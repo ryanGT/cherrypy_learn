@@ -74,17 +74,16 @@ class StringGenerator(object):
         # picture:
         top_part = "date folder: %s" % date_folder
         # note that html uses <br> for break or linefeed or newline:
-        top_part += " <br> filename: %s" % jpeg_relpath
+        top_part += " <br>\n filename: %s" % jpeg_relpath
         # get easy to read time stamp from file name
         time_stamp = image_name_to_time_stamp(jpeg_relpath)
-        top_part += " <br> time stamp: %s" % time_stamp
+        top_part += " <br>\n time stamp: %s" % time_stamp
         jpeg_path = '/' + jpeg_relpath# cherrpy requires a leading /
                                       # on relative paths
         # html code to display the image:
         img_part = '<img src="%s" width=600px>' % jpeg_path
         # closing html code:
-        footer = """</body>
-        </html>"""
+        footer = """</body>\n</html>"""
         # join strings together with <br> in between parts:
         out = " <br>\n".join([header, top_part, img_part, footer])
         return out
