@@ -86,7 +86,7 @@ class StringGenerator(object):
         footer = """</body>
         </html>"""
         # join strings together with <br> in between parts:
-        out = " <br> ".join([header, top_part, img_part])
+        out = " <br>\n".join([header, top_part, img_part, footer])
         return out
 
         
