@@ -5,7 +5,16 @@ import cherrypy
 
 import time, os, glob
 foldername = time.strftime('%m_%d_%y')
-#date_folder = foldername
+
+def image_name_to_time_stamp(relpath):
+    """Convert an image file name to an easier to read time stamp
+    string"""
+    fmt = 'image_%I_%M_%S_%p.jpg'
+    folder, fn = os.path.split(relpath)
+    time_struct = time.strptime(fn, fmt)
+    time_stamp = time.strftime('%I:%M:%S %p', time_struct)
+    return time_stamp
+
 
 class StringGenerator(object):
     def find_img_folder(self):
@@ -38,6 +47,8 @@ class StringGenerator(object):
         jpeg_list = self.find_images(date_folder)
         jpeg_relpath = jpeg_list[index]
         top_part = "filename: %s" % jpeg_relpath
+        time_stamp = image_name_to_time_stamp(jpeg_relpath)
+        top_part += " <br> time stamp: %s" % time_stamp
         jpeg_path = '/' + jpeg_relpath
         print('jpeg_path: ' + jpeg_path)
         img_part = '<img src="%s" width=600px>' % jpeg_path
