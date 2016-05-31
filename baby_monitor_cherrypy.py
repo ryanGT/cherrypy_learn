@@ -73,6 +73,8 @@ if __name__ == '__main__':
             '/': {
                 'tools.sessions.on': True, \
                 'tools.staticdir.root': os.path.abspath(os.getcwd()), \
+                'tools.staticdir.debug': True, \
+                'log.screen': True
                 }, \
             '/static': {
                 'tools.staticdir.on': True,
