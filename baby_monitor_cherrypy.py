@@ -36,6 +36,7 @@ class StringGenerator(object):
 
     @cherrypy.expose
     def show_image(self, index=-1):
+        index = int(index)
         header = """ <html>
         <head>
         <title>CherryPy Baby Monitor</title>
