@@ -5,7 +5,7 @@ import cherrypy
 
 import time, os, glob
 foldername = time.strftime('%m_%d_%y')
-date_folder = foldername
+#date_folder = foldername
 
 class StringGenerator(object):
     def find_img_folder(self):
@@ -16,7 +16,7 @@ class StringGenerator(object):
         else:
             return date_folder_rel
 
-    def find_images(self):
+    def find_images(self, date_folder):
         pat = os.path.join(date_folder, 'image_*.jpg')
         jpeg_list = glob.glob(pat)
         jpeg_list.sort()
@@ -33,9 +33,9 @@ class StringGenerator(object):
         </head>
         <html>
         <body>"""
-        #date_folder = self.find_img_folder()
+        date_folder = self.find_img_folder()
         print('date_folder: ' + date_folder)
-        jpeg_list = self.find_images()
+        jpeg_list = self.find_images(date_folder)
         jpeg_relpath = jpeg_list[index]
         top_part = "filename: %s" % jpeg_relpath
         jpeg_path = '/' + jpeg_relpath
@@ -72,6 +72,11 @@ class StringGenerator(object):
 if __name__ == '__main__':
     img_key = '/' + date_folder
     img_rel = '.' + img_key
+    ## img_key: {
+    ## "tools.staticdir.on": True,
+    ## "tools.staticdir.dir": img_rel,
+    ## }, \
+
     conf = {'/': {
                 'tools.sessions.on': True, \
                 'tools.staticdir.root': os.path.abspath(os.getcwd()), \
@@ -80,11 +85,11 @@ if __name__ == '__main__':
                 }, \
             '/static': {
                 'tools.staticdir.on': True,
-                'tools.staticdir.dir': './public'
+                'tools.staticdir.dir': './public',
                 }, \
-            img_key: {
+            '/img': {
                 "tools.staticdir.on": True,
-                "tools.staticdir.dir": img_rel,
+                "tools.staticdir.dir": './img',
                 }, \
             '/data': {
                 "tools.staticdir.on": True,
