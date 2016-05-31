@@ -72,8 +72,7 @@ class StringGenerator(object):
 if __name__ == '__main__':
     img_key = '/' + date_folder
     img_rel = '.' + img_key
-    conf = {'server.socket_host': '0.0.0.0', \
-            '/': {
+    conf = {'/': {
                 'tools.sessions.on': True, \
                 'tools.staticdir.root': os.path.abspath(os.getcwd()), \
                 'tools.staticdir.debug': True, \
@@ -93,6 +92,7 @@ if __name__ == '__main__':
                 }
             }
     cherrypy.config.update(conf)
+    cherrypy.config.update({'server.socket_host':myip})
     cherrypy.quickstart(StringGenerator(), '/', conf)
 
     
