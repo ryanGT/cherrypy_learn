@@ -70,8 +70,9 @@ class StringGenerator(object):
 
 
 if __name__ == '__main__':
-    img_key = '/' + date_folder
-    img_rel = '.' + img_key
+    ## img_key = '/' + date_folder
+    ## img_rel = '.' + img_key
+    ## removed from conf:
     ## img_key: {
     ## "tools.staticdir.on": True,
     ## "tools.staticdir.dir": img_rel,
