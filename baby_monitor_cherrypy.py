@@ -5,6 +5,7 @@ import cherrypy
 
 import time, os, glob
 foldername = time.strftime('%m_%d_%y')
+date_folder = foldername
 
 class StringGenerator(object):
     def find_img_folder(self):
@@ -15,7 +16,7 @@ class StringGenerator(object):
         else:
             return date_folder_rel
 
-    def find_images(self, date_folder):
+    def find_images(self):
         pat = os.path.join(date_folder, 'image_*.jpg')
         jpeg_list = glob.glob(pat)
         jpeg_list.sort()
@@ -32,7 +33,7 @@ class StringGenerator(object):
         </head>
         <html>
         <body>"""
-        date_folder = self.find_img_folder()
+        #date_folder = self.find_img_folder()
         print('date_folder: ' + date_folder)
         jpeg_list = self.find_images(date_folder)
         jpeg_relpath = jpeg_list[index]
@@ -69,6 +70,8 @@ class StringGenerator(object):
 
 
 if __name__ == '__main__':
+    img_key = '/' + date_folder
+    img_rel = '.' + img_key
     conf = {'server.socket_host': '0.0.0.0', \
             '/': {
                 'tools.sessions.on': True, \
@@ -80,9 +83,9 @@ if __name__ == '__main__':
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': './public'
                 }, \
-            '/img': {
+            img_key: {
                 "tools.staticdir.on": True,
-                "tools.staticdir.dir": './img',
+                "tools.staticdir.dir": img_rel,
                 }, \
             '/data': {
                 "tools.staticdir.on": True,
