@@ -35,7 +35,7 @@ class StringGenerator(object):
         <body>"""
         #date_folder = self.find_img_folder()
         print('date_folder: ' + date_folder)
-        jpeg_list = self.find_images(date_folder)
+        jpeg_list = self.find_images()
         jpeg_relpath = jpeg_list[index]
         top_part = "filename: %s" % jpeg_relpath
         jpeg_path = '/' + jpeg_relpath
