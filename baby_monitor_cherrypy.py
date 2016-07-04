@@ -91,8 +91,8 @@ class StringGenerator(object):
         
     @cherrypy.expose
     def index(self):
-        #return "Hello world!"
-        raise cherrypy.HTTPRedirect("/show_image")
+        return "Hello world!"
+        #raise cherrypy.HTTPRedirect("/show_image")
 
     @cherrypy.expose
     def generate(self, length=8):
