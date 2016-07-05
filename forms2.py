@@ -24,7 +24,7 @@ class StringGenerator(object):
 
 
     @cherrypy.expose
-    def generate(self, text_input='hello'):
+    def respond(self, text_input='hello'):
         msg = 'You sent me this text_input: %s' % text_input
         return msg
 
