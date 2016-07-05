@@ -17,7 +17,8 @@ class StringGenerator(object):
                     <button type="submit">Submit</button>
                 </form>
                 <form method="get" action="myfunc2">
-                    <button type="submit">button2</button>
+                    <button type="submit" style="font-size:40px;min-width: 200px; width:300px;">
+                        button2</button>
                 </form>
                 <form method="get" action="myfunc3">
                     <button type="submit">button3</button>
