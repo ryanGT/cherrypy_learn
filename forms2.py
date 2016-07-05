@@ -7,7 +7,10 @@ class StringGenerator(object):
     @cherrypy.expose
     def index(self):
         return """<html>
-            <head></head>
+            <head>
+            <link href="/static/css/style.css" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            </head>
             <body>
                 <form method="get" action="respond">
                     <input type="text" value="test" name="text_input" />
