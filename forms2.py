@@ -14,14 +14,14 @@ class StringGenerator(object):
             <body>
                 <form method="get" action="respond">
                     <input type="text" value="test" name="text_input" />
-                    <button type="submit">Submit</button>
+                    <button type="submit" style="font-size:40px">Submit</button>
                 </form>
                 <form method="get" action="myfunc2">
                     <button type="submit" style="font-size:40px;min-width: 200px; width:300px;">
                         button2</button>
                 </form>
                 <form method="get" action="myfunc3">
-                    <button type="submit">button3</button>
+                    <button type="submit" style="font-size:40px">button3</button>
                 </form>
             </body>
         </html>"""
