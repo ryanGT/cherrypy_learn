@@ -10,7 +10,7 @@ class StringGenerator(object):
             <head></head>
             <body>
                 <form method="get" action="respond">
-                    <input type="text" value="8" name="text_input" />
+                    <input type="text" value="test" name="text_input" />
                     <button type="submit">Submit</button>
                 </form>
             </body>
@@ -25,4 +25,4 @@ class StringGenerator(object):
 if __name__ == '__main__':
     conf = {'server.socket_host': '0.0.0.0'} 
     cherrypy.config.update(conf)
-    cherrypy.quickstart(StringGenerator(),conf=conf)
+    cherrypy.quickstart(StringGenerator(),config={'/':conf})
